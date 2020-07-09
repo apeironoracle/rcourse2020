@@ -1,0 +1,30 @@
+---
+title: "gapminder-wrangle"
+output: html_document
+---
+
+```{r setup}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+library(tidyverse)
+```
+
+## Learn 'dplyr' Using Gapminder Data Set
+
+```{r}
+gapminder <- readr::read_csv('C:/Users/DELL/Documents/GitHub/rcourse2020/data/gapminder.csv')
+attach(gapminder)
+```
+
+```{r}
+filter(gapminder, lifeExp < 29)
+filter(gapminder, country == 'Mexico')
+filter(gapminder, country == 'China')
+filter(gapminder, country %in% c('Mexico', 'China'))
+```
+
+```{r Exercise}
+data.brazil <- filter(gapminder, country == 'Brazil', year %in% 1987:2007)
+mean(data.brazil$lifeExp)
+```
+
+
